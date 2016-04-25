@@ -31,9 +31,14 @@ class SignUpController < ApplicationController
     @user = User.find(params["id"])
     @user.update(username: params["title"],
                 email: params["email"],
+                address: params['address'],
+                city: params['city'],
+                state: params['state'],
+                zip: params['zip'],
+                phone: params['phone'],
+                dob: params['DOB'],
                 password: params["password"],
-                avatar: params["content"],
-                mood: params["mood"])
+
     @post.updated_at = right_now
     render "create.json.jbuilder", status: :ok
   end
