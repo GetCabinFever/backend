@@ -1,4 +1,4 @@
-class RegistrationController < ApplicationController
+class RegistrationsController < ApplicationController
   skip_before_filter  :verify_authenticity_token, only: [:create, :login]
 
   def create

@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   resources :user 
 
-  post "login", to: "registration#login"
-  post "register", to: "registration#create"
+  post "login", to: "registrations#login"
+  post "register", to: "registrations#create"
   
 
   # The priority is based upon order of creation: first created -> highest priority.

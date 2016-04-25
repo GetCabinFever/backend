@@ -55,8 +55,8 @@ Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
 **Response**
 `...
 {
-  "user": "boingboing",
-  "avatar": "amazon S3 url",
+  "first": "Bob",
+  "last": "amazon S3 url",
   "id": 12,
   "email": "email@email.com",
   "points": 0,
