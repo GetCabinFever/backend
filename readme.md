@@ -65,7 +65,37 @@ Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
   "email": "bob@bob.co",
   "phone": "555-555-5555",
   "dob": "April 27, 1980",
-  "auth_token": "fba3a60545f8adf7bf86090a51589681"
+  "auth_token": "<Generated auth Token>"
 }
 ...`
+
+#### POST /login
+
+*This route is for managing logins of existing users.*
+
+Params:
+
+* email: string
+* password: string
+
+Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
+
+**Request**
+`...
+{
+	"email:" "Bob@bob.bob",
+	"password": "password"
+}
+...`
+
+**Response**
+`...
+{
+  "user": {
+    "email": "bob@bob.co",
+    "auth_token": "<Generated Auth Token>"
+  }
+}
+...`
+
 
