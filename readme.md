@@ -1,6 +1,6 @@
-# mÜdr API
+# CabinFever API
 
-www.acbinfever.herokuapp.com
+www.cabinfever.herokuapp.com
 
 API For Cabin Fever final project of THE IRON YARD MAY 2016 - Cabin Fever - Find your ideal cabin experience
 
