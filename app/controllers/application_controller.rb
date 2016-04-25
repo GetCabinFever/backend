@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate!
     unless current_user
-      render json: { errors: 'Please log in first' }
+      render json: { errors: 'Please log in first' },
                      status: :unauthorized
     end
   end

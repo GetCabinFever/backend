@@ -1,4 +1,4 @@
-json.user @user.first_name
+json.first @user.first_name
 json.last @user.last_name
 json.address @user.address
 json.city @user.city

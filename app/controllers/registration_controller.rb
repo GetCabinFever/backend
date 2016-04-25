@@ -1,4 +1,4 @@
-class SignUpController < ApplicationController
+class RegistrationController < ApplicationController
   skip_before_filter  :verify_authenticity_token, only: [:create, :login]
 
   def create
@@ -37,7 +37,7 @@ class SignUpController < ApplicationController
                 zip: params['zip'],
                 phone: params['phone'],
                 dob: params['DOB'],
-                password: params["password"],
+                password: params["password"])
 
     @post.updated_at = right_now
     render "create.json.jbuilder", status: :ok
@@ -65,3 +65,5 @@ class SignUpController < ApplicationController
         status: :unauthorized
     end
   end
+
+end
