@@ -48,7 +48,7 @@ Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
 	"state": "GA",
 	"zip": "11134",
 	"phone": "555-555-5555",
-	"dob": "April 27, 1980"
+	"DOB": "April 27, 1980"
 }
 ...`
 
@@ -56,12 +56,16 @@ Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
 `...
 {
   "first": "Bob",
-  "last": "amazon S3 url",
-  "id": 12,
-  "email": "email@email.com",
-  "points": 0,
-  "mood": 1,
-  "auth_token": "authtoken string"
+  "last": "Smith",
+  "address": "104 Main Street",
+  "city": "Nowhere",
+  "state": "GA",
+  "zip": "11134",
+  "id": 3,
+  "email": "bob@bob.co",
+  "phone": "555-555-5555",
+  "dob": "April 27, 1980",
+  "auth_token": "fba3a60545f8adf7bf86090a51589681"
 }
 ...`
 
