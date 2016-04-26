@@ -1,5 +1,4 @@
 class RegistrationsController < ApplicationController
-  skip_before_filter  :verify_authenticity_token, only: [:create, :login]
 
   def create
     @user = User.new(first_name: params['first_name'],
