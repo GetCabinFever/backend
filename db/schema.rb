@@ -11,10 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425180830) do
+ActiveRecord::Schema.define(version: 20160426174649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "amenities", force: :cascade do |t|
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.boolean  "kitchen"
+    t.boolean  "internet"
+    t.boolean  "tv"
+    t.boolean  "essentials"
+    t.boolean  "shower_essentials"
+    t.boolean  "heating"
+    t.boolean  "airconditioning"
+    t.boolean  "washer"
+    t.boolean  "dryer"
+    t.boolean  "dishwasher"
+    t.boolean  "free_parking"
+    t.boolean  "cable"
+    t.boolean  "satellite"
+    t.boolean  "breakfast"
+    t.boolean  "pets"
+    t.boolean  "kid_friendly"
+    t.boolean  "events"
+    t.boolean  "smoking"
+    t.boolean  "wheelchair_accessible"
+    t.boolean  "elevator"
+    t.boolean  "fireplace"
+    t.boolean  "intercom"
+    t.boolean  "doorman"
+    t.boolean  "pool"
+    t.boolean  "hottub"
+    t.boolean  "gym"
+    t.boolean  "hangers"
+    t.boolean  "iron"
+    t.boolean  "hair_dryer"
+    t.boolean  "workstation"
+    t.boolean  "billiards"
+    t.integer  "residence_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
