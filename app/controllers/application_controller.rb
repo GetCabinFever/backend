@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    token = request.headers['Auth-token']
+    token = request.headers['X-Auth-Token']
     if token
       User.find_by auth_token: token
     end
