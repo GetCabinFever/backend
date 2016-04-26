@@ -9,7 +9,7 @@ User accounts require a first name, last name, email, password, and Date Of Birt
 
 ### Authorization
 
-All authorized requests unless otherwise mentioned require an "Auth-token" header to be present. Users are assigned an Auth token during account creation.
+All authorized requests unless otherwise mentioned require an "X-Auth-Token" header to be present. Users are assigned an Auth token during account creation.
 
 ### Errors
 
