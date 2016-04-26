@@ -1,6 +1,6 @@
 # CabinFever API
 
-www.cabinfever.herokuapp.com
+cabinfever.herokuapp.com
 
 API For Cabin Fever final project of THE IRON YARD MAY 2016 - Cabin Fever - Find your ideal cabin experience
 
@@ -37,7 +37,7 @@ Params:
 Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
 
 **Request**
-`...
+```
 {
 	"first_name": "Bob",
 	"last_name": "Smith";
@@ -50,10 +50,10 @@ Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
 	"phone": "555-555-5555",
 	"DOB": "April 27, 1980"
 }
-...`
+```
 
 **Response**
-`...
+```
 {
   "first": "Bob",
   "last": "Smith",
@@ -67,7 +67,7 @@ Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
   "dob": "April 27, 1980",
   "auth_token": "<Generated auth Token>"
 }
-...`
+```
 
 #### POST /login
 
@@ -81,21 +81,21 @@ Params:
 Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
 
 **Request**
-`...
+```
 {
 	"email:" "Bob@bob.bob",
 	"password": "password"
 }
-...`
+```
 
 **Response**
-`...
+```
 {
   "user": {
     "email": "bob@bob.co",
     "auth_token": "<Generated Auth Token>"
   }
 }
-...`
+```
 
 
