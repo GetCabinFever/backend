@@ -10,7 +10,8 @@ class RegistrationsController < ApplicationController
                      zip: params['zip'],
                      phone: params['phone'],
                      dob: params['DOB'],
-                     password: params['password'])
+                     password: params['password'],
+                     avatar: params['avatar'])
     @user.ensure_auth_token
     if @user.save
       render "create.json.jbuilder", status: :ok
