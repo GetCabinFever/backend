@@ -53,7 +53,7 @@ Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
 ```
 
 **Response**
-`...
+```
 {
   "first": "Bob",
   "last": "Smith",
@@ -67,7 +67,7 @@ Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
   "dob": "April 27, 1980",
   "auth_token": "<Generated auth Token>"
 }
-...`
+```
 
 #### POST /login
 
@@ -81,21 +81,21 @@ Params:
 Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
 
 **Request**
-`...
+```
 {
 	"email:" "Bob@bob.bob",
 	"password": "password"
 }
-...`
+```
 
 **Response**
-`...
+```
 {
   "user": {
     "email": "bob@bob.co",
     "auth_token": "<Generated Auth Token>"
   }
 }
-...`
+```
 
 
