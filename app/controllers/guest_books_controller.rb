@@ -3,13 +3,13 @@ class GuestBooksController < ApplicationController
 
   def create
     @residence = Residence.find_by params['id']
-    @residence.guest_books.create guest_book_params
+    @residence.guest_books.create(guest_book_params)
     render 'create.json.jbuilder', status: :ok
   end
 
   def update
     @guest_book = GuestBook.find params['id']
-    @guest_book.update guest_book_params
+    @guest_book.update(guest_book_params)
     render 'create.json.jbuilder', status: :accepted
   end
 
@@ -22,6 +22,7 @@ class GuestBooksController < ApplicationController
 
   private
   def guest_book_params
+    # params.fetch(:guest_book, {}).permit(:entry, :user_id)
     params.permit(:entry, :user_id)
   end
 end
