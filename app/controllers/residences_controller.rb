@@ -17,11 +17,13 @@ class ResidencesController < ApplicationController
   def index
     @residences = Residence.all
     render 'index.json.jbuilder'
+    status: :ok
   end
 
   def show
-    @residence = Residence.find(params['id'])
+    @residence = Residence.find(id: params['id'])
     render 'show.json.jbuilder'
+    status: :ok
   end
 
   private

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def check_auth
     if current_user
       render json: { message: "Current User: #{current_user.email}" },
-                     status: ok
+                     status: :ok
     else
       render json: { message: 'Authorization error' },
                      status: :unauthorized
