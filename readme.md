@@ -98,6 +98,26 @@ Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
 }
 ```
 
+#### GET /residences
+
+*This route is for viewing all residence listings.*
+
+Params:
+* None
+
+Returns 200 OK on Success and 401 Unauthorized in case of failure.
+
+
+#### GET /residences/:id
+
+*This route is for viewing a single residence listing.*
+
+Params:
+* Post ID: integer - this comes from the url (:id)
+
+Returns 200 OK on Success and 401 Unauthorized in case of failure.
+
+
 #### POST /residences
 
 *This route is for creating a new residence listing.*
@@ -256,9 +276,10 @@ Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
     "the_area": "it is an area",
     "other_things_to_note": "the notes are there",
     "check_in": null,
-    "check_out": null
+    "check_out": null,
+    "id": 8
   },
-  "image_url": "http://s3-us-west-2.amazonaws.com/cabin-fever/residences/images/000/000/007/original/clamps.jpg?1461773163",
+  "image_url": "http://s3-us-west-2.amazonaws.com/cabin-fever/residences/images/000/000/008/original/clamps.jpg?1461783842",
   "amenities": {
     "kitchen": true,
     "internet": true,
@@ -304,3 +325,22 @@ Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
   }
 }
 ```
+
+#### DELETE /residences/:id
+
+*This route is to delete a property listing.*
+
+Params:
+* Post ID: integer - this comes from the url (:id)
+
+Returns 200 OK on Success and 401 Unauthorized in case of failure.
+
+### PATCH /residences/:id
+
+*This route is to update a property listing.*
+
+Params:
+* Post ID: integer - this comes from the url (:id)
+
+Returns 200 OK on Success and 401 Unauthorized in case of failure.
+
