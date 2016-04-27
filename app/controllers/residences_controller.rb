@@ -16,29 +16,29 @@ class ResidencesController < ApplicationController
 
   def index
     @residences = Residence.all
-    render 'index.jbuilder.json'
+    render 'index.json.jbuilder'
   end
 
   def show
     @residence = Residence.find(params['id'])
-    render 'show.jbuilder.json'
+    render 'show.json.jbuilder'
   end
 
   private
   def residence_params
-    params.permit(:title_of_page, :address, :city, :state, :zip, 
-                  :property_type, :contact_host_email, :base_price, :bedrooms, 
-                  :bathrooms, :beds, :description_of_listing, :house_rules, 
-                  :the_space, :guest_access, :interaction_with_guests, :the_area, 
+    params.permit(:title_of_page, :address, :city, :state, :zip,
+                  :property_type, :contact_host_email, :base_price, :bedrooms,
+                  :bathrooms, :beds, :description_of_listing, :house_rules,
+                  :the_space, :guest_access, :interaction_with_guests, :the_area,
                   :other_things_to_note, :check_in, :check_out, :image, :booking_url)
   end
 
   def amenities_params
-    params.permit(:kitchen, :internet, :tv, :essentials, :shower_essentials, 
-                  :heating, :airconditioning, :washer, :dryer, :dishwasher, 
-                  :free_parking, :cable, :satellite, :breakfast, :pets, 
-                  :kid_friendly, :events, :smoking, :wheelchair_accessible, 
-                  :elevator, :fireplace, :intercom, :doorman, :pool, :hottub, 
+    params.permit(:kitchen, :internet, :tv, :essentials, :shower_essentials,
+                  :heating, :airconditioning, :washer, :dryer, :dishwasher,
+                  :free_parking, :cable, :satellite, :breakfast, :pets,
+                  :kid_friendly, :events, :smoking, :wheelchair_accessible,
+                  :elevator, :fireplace, :intercom, :doorman, :pool, :hottub,
                   :gym, :hangers, :iron, :hair_dryer, :workstation, :billiards)
   end
 
