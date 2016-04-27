@@ -6,8 +6,7 @@ class ResidencesController < ApplicationController
     @residence.amenities = Amenities.new(amenities_params)
     @residence.safety = Safety.new(safeties_params)
     if @residence.save
-      render 'create.json.jbuilder',
-      status: :ok
+      render 'create.json.jbuilder', status: :ok
     else
       render json: { errors: @residence.errors.full_messages },
                      status: :unprocessable_entity
@@ -16,14 +15,18 @@ class ResidencesController < ApplicationController
 
   def index
     @residences = Residence.all
-    render 'index.json.jbuilder'
-    status: :ok
+    render 'index.json.jbuilder', status: :ok
   end
 
   def show
-    @residence = Residence.find(id: params['id'])
-    render 'show.json.jbuilder'
-    status: :ok
+    @residence = Residence.find id: params['id']
+    render 'show.json.jbuilder', status: :ok
+  end
+
+  def update
+    @residence = Residence.find params['id']
+    @residence.update residence_params
+    render 'show.json.jbuilder', status: :accepted
   end
 
   private
