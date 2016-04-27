@@ -19,7 +19,7 @@ class ResidencesController < ApplicationController
   end
 
   def show
-    @residence = Residence.find id: params['id']
+    @residence = Residence.find(params['id'])
     render 'show.json.jbuilder', status: :ok
   end
 
