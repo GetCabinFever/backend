@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/GetCabinFever/backend.svg?branch=master)](https://travis-ci.org/GetCabinFever/backend)
+
 # CabinFever API
 
 cabinfever.herokuapp.com
@@ -155,7 +157,7 @@ Params:
 * washer: boolean
 * dryer: boolean
 * dishwasher: boolean
-* free_parking: 
+* free_parking:
 * cable: boolean
 * satellite: boolean
 * breakfast: boolean
@@ -343,4 +345,3 @@ Params:
 * Post ID: integer - this comes from the url (:id)
 
 Returns 200 OK on Success and 401 Unauthorized in case of failure.
-
