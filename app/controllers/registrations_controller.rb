@@ -23,7 +23,7 @@ class RegistrationsController < ApplicationController
 
   def edit
     @user = User.find(params["id"])
-    render :edit, locals: {user: @user}
+    render 'create.json.jbuilder', status: :accepted
   end
 
   def update
