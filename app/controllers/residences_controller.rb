@@ -7,7 +7,7 @@ class ResidencesController < ApplicationController
     @residence.safety = Safety.new(safeties_params)
     if @residence.save
       render 'create.json.jbuilder',
-      status: :success
+      status: :ok
     else
       render json: { errors: @residence.errors.full_messages },
                      status: :unprocessable_entity
