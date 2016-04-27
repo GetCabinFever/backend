@@ -258,7 +258,7 @@ Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
     "check_in": null,
     "check_out": null
   },
-  "image_url": "http://s3-us-west-2.amazonaws.com/cabin-fever/residences/images/000/000/007/original/clamps.jpg?1461773163",
+  "image_url": (S3 link),
   "amenities": {
     "kitchen": true,
     "internet": true,
