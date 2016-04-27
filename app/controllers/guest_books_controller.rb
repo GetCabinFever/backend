@@ -2,13 +2,9 @@ class GuestBooksController < ApplicationController
   before_action :authenticate!, only: [:create, :update, :destroy]
 
   def create
-    @guest_book = current_user.guest_books.new(guest_book_params)
-    if @guest_book.save
-      render 'create.json.jbuilder', status: :ok
-    else
-      render json: { errors: @user.errors.full_messages },
-                     status: :unprocessable_entity
-    end
+    @residence = Residence.find_by params['id']
+    @residence.guest_books.create guest_book_params
+    render 'create.json.jbuilder', status: :ok
   end
 
   def update
@@ -26,6 +22,6 @@ class GuestBooksController < ApplicationController
 
   private
   def guest_book_params
-    params.permit :entry
+    params.permit(:entry, :user_id)
   end
 end

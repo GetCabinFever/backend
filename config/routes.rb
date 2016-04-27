@@ -2,7 +2,12 @@ Rails.application.routes.draw do
 
   resources :users
   resources :residences
-  resources :guest_books 
+  resources :guest_books
+
+  resources :residences do
+    resources :guest_books
+  end
+
 
   post "login", to: "registrations#login"
   post "register", to: "registrations#create"
