@@ -1,4 +1,4 @@
-class AddUserIdColumnToResidences < ActiveRecord::Migration
+class AddColumnToResidences < ActiveRecord::Migration
   def change
     add_column :residences, :user_id, :integer
   end
