@@ -256,9 +256,10 @@ Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
     "the_area": "it is an area",
     "other_things_to_note": "the notes are there",
     "check_in": null,
-    "check_out": null
+    "check_out": null,
+    "id": 8
   },
-  "image_url": (S3 link),
+  "image_url": "http://s3-us-west-2.amazonaws.com/cabin-fever/residences/images/000/000/008/original/clamps.jpg?1461783842",
   "amenities": {
     "kitchen": true,
     "internet": true,
