@@ -98,6 +98,26 @@ Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
 }
 ```
 
+#### GET /residences
+
+*This route is for viewing all residence listings.*
+
+Params:
+* None
+
+Returns 200 OK on Success and 401 Unauthorized in case of failure.
+
+
+#### GET /residences/:id
+
+*This route is for viewing a single residence listing.*
+
+Params:
+* Post ID: integer - this comes from the url (:id)
+
+Returns 200 OK on Success and 401 Unauthorized in case of failure.
+
+
 #### POST /residences
 
 *This route is for creating a new residence listing.*
