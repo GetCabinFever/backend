@@ -1,5 +1,5 @@
 class ResidencesController < ApplicationController
-  before_action :authenticate!, only: [:create]
+  before_action :authenticate!, only: [:create, :update, :delete]
 
   def create
     @residence = current_user.residences.new(residence_params)
@@ -26,7 +26,19 @@ class ResidencesController < ApplicationController
   def update
     @residence = Residence.find params['id']
     @residence.update residence_params
-    render 'show.json.jbuilder', status: :accepted
+    render 'show.json.jbuilder', status: :ok
+  end
+
+  def destroy
+    @residence = Residence.find(params['id'])
+    if current_user.id == @residence.user_id
+      @residence.destroy
+      render json: { message: "LISTING DESTROYED"} ,
+      satus: :ok
+    else
+      render json: { error: "INVALID PERMISSION" },
+        status: :unauthorized
+    end
   end
 
   private
