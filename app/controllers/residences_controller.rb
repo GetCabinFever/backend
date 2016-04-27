@@ -25,8 +25,13 @@ class ResidencesController < ApplicationController
 
   def update
     @residence = Residence.find params['id']
-    @residence.update residence_params
-    render 'show.json.jbuilder', status: :ok
+    if current_user.id == @residence.user_id
+      @residence.update residence_params
+      render 'show.json.jbuilder', status: :ok
+    else
+      render json: { error: "INVALID PERMISSION" },
+        status: :unauthorized
+    end
   end
 
   def destroy

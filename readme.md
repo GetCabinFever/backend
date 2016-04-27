@@ -335,3 +335,12 @@ Params:
 
 Returns 200 OK on Success and 401 Unauthorized in case of failure.
 
+### PATCH /residences/:id
+
+*This route is to update a property listing.*
+
+Params:
+* Post ID: integer - this comes from the url (:id)
+
+Returns 200 OK on Success and 401 Unauthorized in case of failure.
+
