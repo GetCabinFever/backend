@@ -1,5 +1,5 @@
 class ResidencesController < ApplicationController
-  before_action :authenticate!, only: [:check_auth]
+  before_action :authenticate!, only: [:create]
 
   def create
     @residence = current_user.residences.new(residence_params)
