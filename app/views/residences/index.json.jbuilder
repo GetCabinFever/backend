@@ -6,4 +6,5 @@ json.(@residences) do |residence|
                             :other_things_to_note, :base_price
   json.amenities residence.amenities
   json.safety residence.safety
+  json.guest_book residence.guest_books
 end

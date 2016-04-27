@@ -2,11 +2,15 @@ Rails.application.routes.draw do
 
   resources :users
   resources :residences
+  resources :guest_books
+
+  resources :residences do
+    resources :guest_books
+  end
+
 
   post "login", to: "registrations#login"
   post "register", to: "registrations#create"
-
-  post "create-listing", to: "residences#create"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
