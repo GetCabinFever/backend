@@ -337,7 +337,7 @@ Params:
 
 Returns 200 OK on Success and 401 Unauthorized in case of failure.
 
-### PATCH /residences/:id
+#### PATCH /residences/:id
 
 *This route is to update a property listing.*
 
@@ -345,3 +345,51 @@ Params:
 * Post ID: integer - this comes from the url (:id)
 
 Returns 200 OK on Success and 401 Unauthorized in case of failure.
+
+#### CREATE /residences/:residence_id/guest_books
+
+*This route is to create a guest entry.*
+
+Params:
+
+* entry: string
+
+**Request**
+```
+{
+	"entry": "What a great experience! Lovely little place to stay on a beautiful piece of property. The owners were so accommodating and lovely. The only drawback, I wish I had more time to stay!"
+}
+```
+
+Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
+
+**Response**
+```
+{
+  "guest_book": [
+    {
+      "entry": "What a great experience! Lovely little place to stay on a beautiful piece of property. The owners were so accommodating and lovely. The only drawback-I wish I had more time to stay! ",
+      "residence_id": 33,
+      "user_id": 3
+    }
+  ]
+}
+```
+
+#### PATCH /residences/:id/guest_books/:id
+
+*This route is to update the guest book entry.*
+
+Params:
+* Post ID: integer - this comes from the url (:id)
+
+Returns 200 OK on Success and 401 Unauthorized in case of failure.
+
+#### DELETE /residences/:id/guest_books/:id
+
+*This route is to delete a guest book entry*
+
+Params:
+* Post ID: integer - this comes from the url (:id)
+
+Returns 200 OK on Success and 401 Unauthorized in case of failure. 
