@@ -29,7 +29,7 @@ gem "aws-sdk", '< 2.0'
 
 gem "paperclip"
 
-#add CORS 
+#add CORS
 gem 'rack-cors', require: "rack/cors"
 
 # Use ActiveModel has_secure_password
@@ -46,6 +46,7 @@ group :development, :test do
   gem 'byebug'
   gem 'pry'
   gem "dotenv-rails"
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :development do
@@ -59,4 +60,3 @@ end
 group :development, :production do
 	gem 'rails_12factor'
 end
-
