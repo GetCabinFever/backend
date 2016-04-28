@@ -14,7 +14,8 @@ class ResidencesController < ApplicationController
   end
 
   def index
-    @residences = Residence.all
+    residences = Residence.all
+    @residences = residences.page(params[:page]).per(20)
     render 'index.json.jbuilder', status: :ok
   end
 
