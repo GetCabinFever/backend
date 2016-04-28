@@ -29,6 +29,8 @@ gem "aws-sdk", '< 2.0'
 
 gem "paperclip"
 
+gem 'paperclip-rack', require: 'paperclip/rack'
+
 #add CORS
 gem 'rack-cors', require: "rack/cors"
 

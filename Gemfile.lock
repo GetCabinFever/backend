@@ -102,6 +102,8 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    paperclip-rack (0.0.2)
+      paperclip (>= 3.0)
     pg (0.18.4)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -207,6 +209,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   paperclip
+  paperclip-rack
   pg
   pry
   rack-cors
