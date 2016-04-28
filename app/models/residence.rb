@@ -1,4 +1,6 @@
 class Residence < ActiveRecord::Base
+  include PgSearch
+
   belongs_to :user
   has_one :amenities
   has_one :safety
