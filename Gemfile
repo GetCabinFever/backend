@@ -47,6 +47,7 @@ group :development, :test do
   gem 'pry'
   gem "dotenv-rails"
   gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -59,4 +60,8 @@ end
 
 group :development, :production do
 	gem 'rails_12factor'
+end
+
+group :test do
+  gem 'capybara'
 end
