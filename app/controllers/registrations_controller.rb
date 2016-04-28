@@ -4,8 +4,8 @@ class RegistrationsController < ApplicationController
     @user = User.new(user_params)
     @user.ensure_auth_token
     if @user.save
-      mail = UserMailer.welcome(@user)
-      mail.deliver_now
+      # mail = UserMailer.welcome(@user)
+      # mail.deliver_now
       render "create.json.jbuilder", status: :ok
     else
       render json: { errors: @user.errors.full_messages },
