@@ -20,19 +20,15 @@ class RegistrationsController < ApplicationController
 
   def update
     right_now = DateTime.now
-    @user = User.find(params["id"])
-    @user.update(username: params["title"],
-                email: params["email"],
-                address: params['address'],
-                city: params['city'],
-                state: params['state'],
-                zip: params['zip'],
-                phone: params['phone'],
-                dob: params['DOB'],
-                password: params["password"])
-
-    @post.updated_at = right_now
-    render "create.json.jbuilder", status: :ok
+    @user = User.find_by!(email: params["email"])
+    if current_user.id == user.id
+      @user.update(user_params)
+      @post.updated_at = right_now
+      render "create.json.jbuilder", status: :ok
+    else
+      render json: { errors: @user.errors.full_messages },
+                     status: :unauthorized
+    end
   end
 
   def login
