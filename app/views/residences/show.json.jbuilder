@@ -9,3 +9,5 @@ json.amenities @residence.amenities, :kitchen, :internet, :tv, :essentials, :sho
                                      :hangers, :iron, :hair_dryer, :workstation, :billiards
 
 json.safeties @residence.safety, :smoke, :co2, :first_aid, :safety_card, :extinguisher, :fire_alarm, :gas_shutoff, :generator
+
+
