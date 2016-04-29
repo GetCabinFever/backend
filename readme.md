@@ -395,3 +395,16 @@ Params:
 * Post ID: integer - this comes from the url (:id)
 
 Returns 200 OK on Success and 401 Unauthorized in case of failure. 
+
+#### POST /residences/search
+
+*This route is to search through all residence listings in the database.*
+
+Params:
+Users can search by any one or combination of the following:
+* City
+* State
+* Zip
+* property_type
+
+Returns 200 OK on Success.
