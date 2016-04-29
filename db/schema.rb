@@ -21,35 +21,35 @@ ActiveRecord::Schema.define(version: 20160427165821) do
     t.datetime "updated_at",                            null: false
     t.boolean  "kitchen",               default: false
     t.boolean  "internet",              default: false
-    t.boolean  "tv",                    default: false
-    t.boolean  "essentials",            default: false
-    t.boolean  "shower_essentials",     default: false
-    t.boolean  "heating",               default: false
-    t.boolean  "airconditioning",       default: false
-    t.boolean  "washer",                default: false
-    t.boolean  "dryer",                 default: false
-    t.boolean  "dishwasher",            default: false
-    t.boolean  "free_parking",          default: false
-    t.boolean  "cable",                 default: false
-    t.boolean  "satellite",             default: false
-    t.boolean  "breakfast",             default: false
-    t.boolean  "pets",                  default: false
-    t.boolean  "kid_friendly",          default: false
-    t.boolean  "events",                default: false
-    t.boolean  "smoking",               default: false
-    t.boolean  "wheelchair_accessible", default: false
-    t.boolean  "elevator",              default: false
-    t.boolean  "fireplace",             default: false
-    t.boolean  "intercom",              default: false
-    t.boolean  "doorman",               default: false
-    t.boolean  "pool",                  default: false
-    t.boolean  "hottub",                default: false
-    t.boolean  "gym",                   default: false
-    t.boolean  "hangers",               default: false
-    t.boolean  "iron",                  default: false
-    t.boolean  "hair_dryer",            default: false
-    t.boolean  "workstation",           default: false
-    t.boolean  "billiards",             default: false
+    t.boolean  "tv"
+    t.boolean  "essentials"
+    t.boolean  "shower_essentials"
+    t.boolean  "heating"
+    t.boolean  "airconditioning"
+    t.boolean  "washer"
+    t.boolean  "dryer"
+    t.boolean  "dishwasher"
+    t.boolean  "free_parking"
+    t.boolean  "cable"
+    t.boolean  "satellite"
+    t.boolean  "breakfast"
+    t.boolean  "pets"
+    t.boolean  "kid_friendly"
+    t.boolean  "events"
+    t.boolean  "smoking"
+    t.boolean  "wheelchair_accessible"
+    t.boolean  "elevator"
+    t.boolean  "fireplace"
+    t.boolean  "intercom"
+    t.boolean  "doorman"
+    t.boolean  "pool"
+    t.boolean  "hottub"
+    t.boolean  "gym"
+    t.boolean  "hangers"
+    t.boolean  "iron"
+    t.boolean  "hair_dryer"
+    t.boolean  "workstation"
+    t.boolean  "billiards"
     t.integer  "residence_id"
   end
 
