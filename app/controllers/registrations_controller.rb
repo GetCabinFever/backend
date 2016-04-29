@@ -14,8 +14,10 @@ class RegistrationsController < ApplicationController
                      avatar: params['avatar'])
     @user.ensure_auth_token
     if @user.save
-      mail = UserMailer.welcome_email(@user)
-      mail.deliver_now
+
+      # mail = UserMailer.welcome(@user)
+      # mail.deliver_now
+
       render "create.json.jbuilder", status: :ok
     else
       render json: { errors: @user.errors.full_messages },
@@ -25,7 +27,7 @@ class RegistrationsController < ApplicationController
 
   def edit
     @user = User.find(params["id"])
-    render 'create.json.jbuilder', status: :accepted
+    render 'create.json.jbuilder', status: :ok
   end
 
   def update
@@ -57,7 +59,7 @@ class RegistrationsController < ApplicationController
     if @user.authenticate(params["password"])
       @user.destroy
         render plain: "USER DESTROYED",
-        status: :accepted
+        status: :ok
     else
       render json: { error: "UNAUTHORIZED" },
         status: :unauthorized
