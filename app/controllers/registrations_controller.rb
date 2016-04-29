@@ -14,8 +14,8 @@ class RegistrationsController < ApplicationController
                      avatar: params['avatar'])
     @user.ensure_auth_token
     if @user.save
-      # mail = UserMailer.welcome(@user)
-      # mail.deliver_now
+      mail = UserMailer.welcome_email(@user)
+      mail.deliver_now
       render "create.json.jbuilder", status: :ok
     else
       render json: { errors: @user.errors.full_messages },
