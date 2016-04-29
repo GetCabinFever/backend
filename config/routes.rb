@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post "register", to: "registrations#create"
 
   get "residences/search", to: "search#search"
+  post "residences/search", to: "search#search"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
