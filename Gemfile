@@ -29,11 +29,16 @@ gem "aws-sdk", '< 2.0'
 
 gem "paperclip"
 
+gem 'paperclip-rack', require: 'paperclip/rack'
+
 #add CORS
 gem 'rack-cors', require: "rack/cors"
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+# Use kaminari for pagination
+gem 'kaminari'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
