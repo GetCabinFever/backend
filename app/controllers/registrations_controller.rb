@@ -1,17 +1,7 @@
 class RegistrationsController < ApplicationController
 
   def create
-    @user = User.new(first_name: params['first_name'],
-                     last_name: params['last_name'],
-                     email: params['email'],
-                     address: params['address'],
-                     city: params['city'],
-                     state: params['state'],
-                     zip: params['zip'],
-                     phone: params['phone'],
-                     dob: params['DOB'],
-                     password: params['password'],
-                     avatar: params['avatar'])
+    @user = User.new(user_params)
     @user.ensure_auth_token
     if @user.save
       mail = UserMailer.welcome_email(@user)
@@ -64,4 +54,8 @@ class RegistrationsController < ApplicationController
     end
   end
 
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :address, :city,
+                                 :state, :zip, :phone, :dob, :password, :avatar)
+  end
 end

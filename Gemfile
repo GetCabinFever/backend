@@ -40,6 +40,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use kaminari for pagination
 gem 'kaminari'
 
+# Minitest integration for Rails
+gem 'minitest-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -63,4 +66,8 @@ end
 
 group :development, :production do
 	gem 'rails_12factor'
+end
+
+group :test do
+  gem 'minitest-reporters'
 end

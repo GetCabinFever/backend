@@ -1,17 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  first_name: MyString
-  last_name: MyString
-  password_digest: MyString
-  email: MyString
-  owner: false
-  renter: false
-
-two:
-  first_name: MyString
-  last_name: MyString
-  password_digest: MyString
-  email: MyString
-  owner: false
-  renter: false
+tycho:
+  first_name: Tycho
+  last_name: Brahe
+  password_digest: <%= BCrypt::Password.create('tbrahe') %>
+  email: tbrahe@domain.com
+  address: 123 Sample Drive
+  city: San Francisco
+  state: California
+  phone: (941)252-1221
+  dob: 05/20/1950
