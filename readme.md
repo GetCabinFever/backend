@@ -401,10 +401,55 @@ Returns 200 OK on Success and 401 Unauthorized in case of failure.
 *This route is to search through all residence listings in the database.*
 
 Params:
-Users can search by any one or combination of the following:
-* City
-* State
-* Zip
+Users can search by any one or combination of the following: city, state, zip as search_input
+
+* search_input
 * property_type
 
 Returns 200 OK on Success.
+
+**Request**
+```
+{
+  "zip": "11134"
+}
+```
+
+**Response**
+```
+[
+  {
+    "image": "<Amazon S3 Generated Image>",
+    "city": "Nowhere",
+    "state": "GA",
+    "zip": "11134",
+    "id": 13,
+    "property_type": "Cabin",
+    "title": "Jimmy's Chicken Shack",
+    "accommodates": 8,
+    "beds": 5
+  },
+  {
+    "image": "<Amazon S3 Generated Image>",
+    "city": "Nowhere",
+    "state": "GA",
+    "zip": "11134",
+    "id": 14,
+    "property_type": "Cabin",
+    "title": "The Hedge",
+    "accommodates": 5,
+    "beds": 5
+  },
+  {
+    "image": "<Amazon S3 Generated Image>",
+    "city": "atlanta",
+    "state": "GA",
+    "zip": "11134",
+    "id": 15,
+    "property_type": "Cottage",
+    "title": "Roscoe's Dream",
+    "accommodates": 4,
+    "beds": 5
+  }
+]
+```
