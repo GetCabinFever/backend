@@ -443,3 +443,13 @@ Returns 200 OK on Success.
   }
 ]
 ```
+
+#### GET /user/dashboard
+
+*This route is to get the current user's dashboard. Current user is determined by the auth token found in the headers under "X-Auth-Token"*
+
+Params:
+
+* current_user
+
+Returns 200 OK on Success.
