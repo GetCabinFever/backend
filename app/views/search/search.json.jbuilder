@@ -1,5 +1,4 @@
 
-
 json.array! @listings do |listing|
 	json.image listing.image
 	json.city listing.city
@@ -10,5 +9,6 @@ json.array! @listings do |listing|
 	json.title listing.title_of_page
 	json.accommodates listing.accommodates
 	json.beds listing.beds
+	json.price listing.base_price
 
 end
