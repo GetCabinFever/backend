@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   resources :users
+
+  get "residences/search", to: "search#search"
+
   resources :residences
   resources :guest_books
 
@@ -8,13 +11,8 @@ Rails.application.routes.draw do
     resources :guest_books
   end
 
-
   post "login", to: "registrations#login"
   post "register", to: "registrations#create"
-
-  get "residences/search", to: "search#search"
-  post "residences/search", to: "search#search"
-
 
   get "user/dashboard", to: "users#dashboard"
 
