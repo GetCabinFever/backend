@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate!, only: [:check_auth]
+  before_action :authenticate!, only: [:check_auth, :dashboard]
 
   def check_auth
     if current_user
@@ -9,5 +9,9 @@ class UsersController < ApplicationController
       render json: { message: 'Authorization error' },
                      status: :unauthorized
     end
+  end
+
+  def dashboard
+    render "registrations/dashboard.json.jbuilder", status: :ok
   end
 end
