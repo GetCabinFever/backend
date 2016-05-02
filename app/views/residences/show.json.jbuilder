@@ -1,4 +1,4 @@
-json.owner @residence.user, :first_name, :last_name
+json.owner @residence.user, :first_name, :last_name, :email
 
 json.residence @residence, :title_of_page, :user_id, :address, :city, :state, :zip, :property_type, :contact_host_email, :base_price, :accommodates,
                            :bedrooms, :bathrooms, :beds, :description_of_listing, :house_rules, :the_space, :guest_access,
