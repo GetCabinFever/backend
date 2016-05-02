@@ -411,7 +411,8 @@ Returns 200 OK on Success.
 **Request**
 ```
 {
-  "zip": "11134"
+  "search_input": "11134"
+  "property_type": "Cabin"
 }
 ```
 
@@ -427,7 +428,7 @@ Returns 200 OK on Success.
     "property_type": "Cabin",
     "title": "Jimmy's Chicken Shack",
     "accommodates": 8,
-    "beds": 5
+    "beds": 4
   },
   {
     "image": "<Amazon S3 Generated Image>",
@@ -438,18 +439,7 @@ Returns 200 OK on Success.
     "property_type": "Cabin",
     "title": "The Hedge",
     "accommodates": 5,
-    "beds": 5
-  },
-  {
-    "image": "<Amazon S3 Generated Image>",
-    "city": "atlanta",
-    "state": "GA",
-    "zip": "11134",
-    "id": 15,
-    "property_type": "Cottage",
-    "title": "Roscoe's Dream",
-    "accommodates": 4,
-    "beds": 5
+    "beds": 2
   }
 ]
 ```
