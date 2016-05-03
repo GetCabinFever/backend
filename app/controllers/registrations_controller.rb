@@ -1,18 +1,9 @@
 class RegistrationsController < ApplicationController
 
   def create
-    @user = User.new(first_name: params['first_name'],
-                     last_name: params['last_name'],
-                     email: params['email'],
-                     address: params['address'],
-                     city: params['city'],
-                     state: params['state'],
-                     zip: params['zip'],
-                     phone: params['phone'],
-                     dob: params['DOB'],
-                     password: params['password'],
-                     avatar: params['avatar'])
+    @user = User.new(user_params)
     @user.ensure_auth_token
+
     if @user.save
       UserMailer.welcome_email(@user).deliver_now
       render "create.json.jbuilder", status: :ok
@@ -22,26 +13,9 @@ class RegistrationsController < ApplicationController
     end
   end
 
-  def edit
-    @user = User.find(params["id"])
-    render 'create.json.jbuilder', status: :ok
-  end
-
-  def update
-    right_now = DateTime.now
-    @user = User.find_by!(email: params["email"])
-    if current_user.id == user.id
-      @user.update(user_params)
-      @post.updated_at = right_now
-      render "create.json.jbuilder", status: :ok
-    else
-      render json: { errors: @user.errors.full_messages },
-                     status: :unauthorized
-    end
-  end
-
   def login
     @user = User.find_by!(email: params["email"])
+
     if @user && @user.authenticate(params["password"])
       render json: { user: @user.as_json(only: [:email, :auth_token]) },
           status: :ok
@@ -51,16 +25,8 @@ class RegistrationsController < ApplicationController
     end
   end
 
-  def destroy
-    @user = User.find_by(username: params["username"])
-    if @user.authenticate(params["password"])
-      @user.destroy
-        render plain: "USER DESTROYED",
-        status: :ok
-    else
-      render json: { error: "UNAUTHORIZED" },
-        status: :unauthorized
-    end
+  def user_params
+    params.permit(:first_name, :last_name, :email, :address, :city,
+                  :state, :zip, :phone, :dob, :password, :avatar)
   end
-
 end
