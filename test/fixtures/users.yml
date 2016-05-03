@@ -3,3 +3,9 @@
 tycho:
   password_digest: <%= BCrypt::Password.create('tbrahe') %>
   email: tbrahe@domain.com
+  auth_token: <%= User.generate_token %>
+
+brit:
+  password_digest: <%= BCrypt::Password.create("cookies") %>
+  email: brit@lies.com
+  auth_token: <%= User.generate_token %>
