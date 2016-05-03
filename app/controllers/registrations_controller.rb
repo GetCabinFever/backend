@@ -1,4 +1,15 @@
 class RegistrationsController < ApplicationController
+  before_action :authenticate!, only: [:check_auth]
+
+  def check_auth
+    if current_user
+      render json: { message: "Current User: #{current_user.email}" },
+                     status: :ok
+    else
+      render json: { message: 'Authorization error' },
+                     status: :unauthorized
+    end
+  end
 
   def create
     @user = User.new(user_params)
@@ -13,49 +24,19 @@ class RegistrationsController < ApplicationController
     end
   end
 
-  def edit
-    @user = User.find(params["id"])
-    render 'create.json.jbuilder', status: :accepted
-  end
-
-  def update
-    right_now = DateTime.now
-    @user = User.find_by!(email: params["email"])
-    if current_user.id == user.id
-      @user.update(user_params)
-      @post.updated_at = right_now
-      render "create.json.jbuilder", status: :ok
-    else
-      render json: { errors: @user.errors.full_messages },
-                     status: :unauthorized
-    end
-  end
-
   def login
     @user = User.find_by!(email: params["email"])
     if @user && @user.authenticate(params["password"])
       render json: { user: @user.as_json(only: [:email, :auth_token]) },
-          status: :ok
+                     status: :ok
     else
       render json: { message: "INVALID EMAIL OR PASSWORD."},
-          status: :unauthorized
-    end
-  end
-
-  def destroy
-    @user = User.find_by(username: params["username"])
-    if @user.authenticate(params["password"])
-      @user.destroy
-        render plain: "USER DESTROYED",
-        status: :accepted
-    else
-      render json: { error: "UNAUTHORIZED" },
-        status: :unauthorized
+                     status: :unauthorized
     end
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :address, :city,
-                                 :state, :zip, :phone, :dob, :password, :avatar)
+    params.permit(:first_name, :last_name, :email, :address, :city,
+                  :state, :zip, :phone, :dob, :password, :avatar)
   end
 end

@@ -13,3 +13,7 @@ options = {
 options.each do |key, value|
   Paperclip::Attachment.default_options[key] = value
 end
+
+if Rails.env != 'test'
+  Paperclip::Attachment.default_options[:path] = 'backend/:rails_env/:class/:attachment/:id_partition/:filename'
+end

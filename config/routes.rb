@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :users
+  resources :users, only: [:create, :update, :destroy]
   resources :residences
   resources :guest_books
 

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
@@ -40,9 +40,6 @@ gem 'bcrypt', '~> 3.1.7'
 # Use kaminari for pagination
 gem 'kaminari'
 
-# Minitest integration for Rails
-gem 'minitest-rails'
-
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -54,7 +51,9 @@ group :development, :test do
   gem 'byebug'
   gem 'pry'
   gem "dotenv-rails"
+  gem 'minitest-rails', git: 'https://github.com/blowmage/minitest-rails.git'
 end
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -70,4 +69,7 @@ end
 
 group :test do
   gem 'minitest-reporters'
+  gem 'mocha'
+  gem 'shoulda-context'
+  gem 'shoulda-matchers'
 end

@@ -1,12 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 tycho:
-  first_name: Tycho
-  last_name: Brahe
   password_digest: <%= BCrypt::Password.create('tbrahe') %>
   email: tbrahe@domain.com
-  address: 123 Sample Drive
-  city: San Francisco
-  state: California
-  phone: (941)252-1221
-  dob: 05/20/1950

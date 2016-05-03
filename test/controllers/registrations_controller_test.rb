@@ -1,30 +1,42 @@
 require 'test_helper'
 
-class RegistrationsControllerTest < ActiveSupport::TestCase
-  def setup
-    @user = User.new
+class RegistrationsControllerTest < ActionController::TestCase
+
+  test 'should create user ' do
+    assert_difference 'User.count' do
+      post :create, {
+        first_name: 'Tycho',
+        email: "cookies@mons.com",
+        password: "deeeelicious"
+      }
+    end
+    assert_equal response.status, 200
   end
 
-  def valid_params
-    { first_name: 'Johannes', last_name: 'Kepler', password: 'jkepler', auth_token: '2c168ca8d5c11e622a267fb7a67a7d44', email: 'jkepler@domain.com' }
+  test 'should not create user with invalid email' do
+    post :create, { email: 'void.com' }
+    assert_equal response.status, 422
+    assert_not_nil assigns(:user)
   end
 
-  it 'should be valid' do
-    @user.valid?
+  # test 'should not create user with invalid password' do
+  #   post :create, { password: 'void' }
+  #   assert_equal response.status, 422
+  # end
+
+  test 'should log in' do
+    post :login, {
+      email: users(:tycho).email,
+      password: 'tbrahe'
+    }
+    assert_response 200
   end
 
-  it "is valid with valid params" do
-    user = User.new valid_params
-
-    assert user.valid?, "Can't create with valid params: #{user.errors.messages}"
-  end
-
-  it 'is invalid without an email' do
-    params = valid_params.clone
-    params.delete :email
-    user = User.new params
-
-    user.wont_be :valid?
-    user.errors[:email].must_be :present?
+  test 'should not log in with invalid password' do
+    post :login, {
+      email: users(:tycho).email,
+      password: 'void'
+    }
+    assert_response 401
   end
 end
