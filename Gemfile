@@ -29,11 +29,21 @@ gem "aws-sdk", '< 2.0'
 
 gem "paperclip"
 
-#add CORS 
+gem 'paperclip-rack', require: 'paperclip/rack'
+
+#add CORS
 gem 'rack-cors', require: "rack/cors"
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+
+# Use pg_search for searching for listings
+gem 'pg_search'
+
+# Use kaminari for pagination
+gem 'kaminari'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -46,6 +56,7 @@ group :development, :test do
   gem 'byebug'
   gem 'pry'
   gem "dotenv-rails"
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :development do
@@ -59,4 +70,3 @@ end
 group :development, :production do
 	gem 'rails_12factor'
 end
-

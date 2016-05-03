@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   def current_user
     token = request.headers['X-Auth-Token']
     if token
-      User.find_by auth_token: token
+      @current_user ||= User.find_by auth_token: token
     end
   end
 

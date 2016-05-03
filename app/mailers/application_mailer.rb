@@ -1,4 +1,3 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "no-reply@cabinfever.herokuapp.com"
-  layout 'mailer'
+  ActionMailer::Base.mail(:from => "noreply@cabin-fever.com", :to => "you@example.com", :subject => "Cabin Fever email verification", :body => "test").deliver
 end

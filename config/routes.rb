@@ -1,13 +1,20 @@
 Rails.application.routes.draw do
 
   resources :users
+
+  get "residences/search", to: "search#search"
+
   resources :residences
+  resources :guest_books
+
+  resources :residences do
+    resources :guest_books
+  end
 
   post "login", to: "registrations#login"
   post "register", to: "registrations#create"
 
-  post "create-listing", to: "residences#create"
-
+  get "user/dashboard", to: "users#dashboard"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

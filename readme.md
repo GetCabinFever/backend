@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/GetCabinFever/backend.svg?branch=master)](https://travis-ci.org/GetCabinFever/backend)
+
 # CabinFever API
 
 cabinfever.herokuapp.com
@@ -155,7 +157,7 @@ Params:
 * washer: boolean
 * dryer: boolean
 * dishwasher: boolean
-* free_parking: 
+* free_parking:
 * cable: boolean
 * satellite: boolean
 * breakfast: boolean
@@ -209,7 +211,8 @@ Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
   "the_area": "it is an area",
   "other_things_to_note": "the notes are there",
   "check_in": null,
-  "check_out": null
+  "check_out": null,
+  "boking_url": "airbnb",
   "image": (Attached File),
   "kitchen": true,
   "internet": true,
@@ -277,7 +280,8 @@ Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
     "other_things_to_note": "the notes are there",
     "check_in": null,
     "check_out": null,
-    "id": 8
+    "id": 8,
+    "booking_url": "airbnb.com"
   },
   "image_url": "http://s3-us-west-2.amazonaws.com/cabin-fever/residences/images/000/000/008/original/clamps.jpg?1461783842",
   "amenities": {
@@ -335,7 +339,7 @@ Params:
 
 Returns 200 OK on Success and 401 Unauthorized in case of failure.
 
-### PATCH /residences/:id
+#### PUT /residences/:id
 
 *This route is to update a property listing.*
 
@@ -344,3 +348,108 @@ Params:
 
 Returns 200 OK on Success and 401 Unauthorized in case of failure.
 
+#### CREATE /residences/:residence_id/guest_books
+
+*This route is to create a guest entry.*
+
+Params:
+
+* entry: string
+
+**Request**
+```
+{
+	"entry": "What a great experience! Lovely little place to stay on a beautiful piece of property. The owners were so accommodating and lovely. The only drawback, I wish I had more time to stay!"
+}
+```
+
+Returns 200 OK on Success and 422 Unprocessable Entity in case of failure.
+
+**Response**
+```
+{
+  "guest_book": [
+    {
+      "entry": "What a great experience! Lovely little place to stay on a beautiful piece of property. The owners were so accommodating and lovely. The only drawback-I wish I had more time to stay! ",
+      "residence_id": 33,
+      "user_id": 3
+    }
+  ]
+}
+```
+
+#### PATCH /residences/:id/guest_books/:id
+
+*This route is to update the guest book entry.*
+
+Params:
+* Post ID: integer - this comes from the url (:id)
+
+Returns 200 OK on Success and 401 Unauthorized in case of failure.
+
+#### DELETE /residences/:id/guest_books/:id
+
+*This route is to delete a guest book entry*
+
+Params:
+* Post ID: integer - this comes from the url (:id)
+
+Returns 200 OK on Success and 401 Unauthorized in case of failure. 
+
+#### POST /residences/search
+
+*This route is to search through all residence listings in the database.*
+
+Params:
+Users can search by any one or combination of the following: city, state, zip as search_input
+
+* search_input
+* property_type
+
+Returns 200 OK on Success.
+
+**Request**
+```
+{
+  "search_input": "11134"
+  "property_type": "Cabin"
+}
+```
+
+**Response**
+```
+[
+  {
+    "image": "<Amazon S3 Generated Image>",
+    "city": "Nowhere",
+    "state": "GA",
+    "zip": "11134",
+    "id": 13,
+    "property_type": "Cabin",
+    "title": "Jimmy's Chicken Shack",
+    "accommodates": 8,
+    "beds": 4
+  },
+  {
+    "image": "<Amazon S3 Generated Image>",
+    "city": "Nowhere",
+    "state": "GA",
+    "zip": "11134",
+    "id": 14,
+    "property_type": "Cabin",
+    "title": "The Hedge",
+    "accommodates": 5,
+    "beds": 2
+  }
+]
+```
+
+#### GET /user/dashboard
+
+*This route is to get the current user's dashboard. Current user is determined by the auth token found in the headers under "X-Auth-Token"*
+
+Params:
+
+* current_user
+
+Returns 200 OK on Success.
