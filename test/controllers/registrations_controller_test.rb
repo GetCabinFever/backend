@@ -19,11 +19,6 @@ class RegistrationsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:user)
   end
 
-  # test 'should not create user with invalid password' do
-  #   post :create, { password: 'void' }
-  #   assert_equal response.status, 422
-  # end
-
   test 'should log in' do
     post :login, {
       email: users(:tycho).email,

@@ -9,7 +9,7 @@ class GuestBooksController < ApplicationController
       render 'create.json.jbuilder', status: :ok
     else
       render json: { errors: @residence.errors.full_messages },
-                     status: :unprocessable_entity
+                     status: :unauthorized
     end
   end
 
@@ -19,10 +19,13 @@ class GuestBooksController < ApplicationController
     render 'create.json.jbuilder', status: :accepted
   end
 
-  def delete
+  def destroy
     @guest_book = GuestBook.find params['id']
     if current_user.id == @guest_book.user_id
       @guest_book.destroy
+    else
+      render json: { errors: @guest_book.errors.full_messages },
+                     status: :unauthorized
     end
   end
 

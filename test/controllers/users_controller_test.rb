@@ -7,20 +7,22 @@ class UsersControllerTest < ActionController::TestCase
     request.headers["X-Auth-Token"] = @user.auth_token
   end
 
-  # test "users can't update other users" do
-  #   patch :update, id: users(:brit).id, email: "ur-hacked@haha.com"
-  #   assert_response :unauthorized
-  # end
-  #
-  # test "fake users cannot be updated" do
-  #   patch :update, id: 9999999, email: "bull@shit.com"
-  #   assert_response :not_found
-  # end
+  test 'should not update other profiles' do
+    patch :update, id: users(:brit).id, email: 'foo@bar.com'
+    assert_response :unauthorized
+  end
 
-  test "only logged in users can update themselves" do
-    patch :update, id: @user.id, email: "foo@bar.com"
+  test 'should only update own profile' do
+    patch :update, id: @user.id, email: 'foo@bar.com'
     assert_not_equal @user.email, User.find(@user.id).email
     assert_response :success
-    assert_template "update.json.jbuilder"
+    assert_template 'registrations/create.json.jbuilder'
+  end
+
+  test 'should render error when not logged in user destroy' do
+    assert_no_difference 'User.count' do
+      delete :destroy, id: users(:brit).id
+    end
+    assert_response :unauthorized
   end
 end
