@@ -16,12 +16,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by!(email: params["email"])
-    
+    @user = User.find_by id: params['id']
+
     if @current_user.id == @user.id
       @user.update(user_params)
-      @post.updated_at = right_now
-      render "create.json.jbuilder", status: :ok
+      render 'registrations/create.json.jbuilder', status: :ok
     else
       render json: { errors: @user.errors.full_messages },
                      status: :unauthorized
@@ -29,15 +28,15 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by(params['id'])
+    @user = User.find_by(id: params['id'])
 
-    if @user.authenticate(params["password"])
+    if @current_user.id == @user.id
       @user.destroy
-        render plain: "#{@user.first_name}'s account successfully deleted",
-        status: :ok
+      render plain: "#{@user.first_name}'s account successfully deleted",
+             status: :ok
     else
       render json: { errors: @user.errors.full_messages },
-        status: :unauthorized
+                     status: :unauthorized
     end
   end
 
