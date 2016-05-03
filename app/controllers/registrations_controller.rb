@@ -46,7 +46,8 @@ class RegistrationsController < ApplicationController
   def login
     @user = User.find_by!(email: params["email"])
     if @user && @user.authenticate(params["password"])
-      render "dashboard.json.jbuilder", status: :ok
+      render json: { user: @user.as_json(only: [:email, :auth_token]) },
+          status: :ok
     else
       render json: { message: "INVALID EMAIL OR PASSWORD."},
           status: :unauthorized
