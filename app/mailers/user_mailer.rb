@@ -1,7 +1,8 @@
 class UserMailer < ApplicationMailer
-  default from: 'notifications@example.com'
+  default from: 'no-reply-CabinFever@example.com'
 
   def welcome_email(user)
-    ActionMailer::Base.mail(:from => "me@example.com", :to => "you@example.com", :subject => "Cabin Fever email verification", :body => "test").deliver
+    @user = user
+    mail(to: @user.email, subject: 'Verification')
   end
 end

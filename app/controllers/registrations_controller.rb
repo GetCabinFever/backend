@@ -14,9 +14,9 @@ class RegistrationsController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.ensure_auth_token
+
     if @user.save
-      mail = UserMailer.welcome_email(@user)
-      mail.deliver_now
+      UserMailer.welcome_email(@user).deliver_now
       render "create.json.jbuilder", status: :ok
     else
       render json: { errors: @user.errors.full_messages },
@@ -26,6 +26,7 @@ class RegistrationsController < ApplicationController
 
   def login
     @user = User.find_by!(email: params["email"])
+
     if @user && @user.authenticate(params["password"])
       render json: { user: @user.as_json(only: [:email, :auth_token]) },
                      status: :ok

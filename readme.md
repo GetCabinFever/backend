@@ -339,7 +339,7 @@ Params:
 
 Returns 200 OK on Success and 401 Unauthorized in case of failure.
 
-#### PATCH /residences/:id
+#### PUT /residences/:id
 
 *This route is to update a property listing.*
 
@@ -395,3 +395,61 @@ Params:
 * Post ID: integer - this comes from the url (:id)
 
 Returns 200 OK on Success and 401 Unauthorized in case of failure. 
+
+#### POST /residences/search
+
+*This route is to search through all residence listings in the database.*
+
+Params:
+Users can search by any one or combination of the following: city, state, zip as search_input
+
+* search_input
+* property_type
+
+Returns 200 OK on Success.
+
+**Request**
+```
+{
+  "search_input": "11134"
+  "property_type": "Cabin"
+}
+```
+
+**Response**
+```
+[
+  {
+    "image": "<Amazon S3 Generated Image>",
+    "city": "Nowhere",
+    "state": "GA",
+    "zip": "11134",
+    "id": 13,
+    "property_type": "Cabin",
+    "title": "Jimmy's Chicken Shack",
+    "accommodates": 8,
+    "beds": 4
+  },
+  {
+    "image": "<Amazon S3 Generated Image>",
+    "city": "Nowhere",
+    "state": "GA",
+    "zip": "11134",
+    "id": 14,
+    "property_type": "Cabin",
+    "title": "The Hedge",
+    "accommodates": 5,
+    "beds": 2
+  }
+]
+```
+
+#### GET /user/dashboard
+
+*This route is to get the current user's dashboard. Current user is determined by the auth token found in the headers under "X-Auth-Token"*
+
+Params:
+
+* current_user
+
+Returns 200 OK on Success.

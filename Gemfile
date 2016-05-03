@@ -37,8 +37,13 @@ gem 'rack-cors', require: "rack/cors"
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+
+# Use pg_search for searching for listings
+gem 'pg_search'
+
 # Use kaminari for pagination
 gem 'kaminari'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'

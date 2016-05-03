@@ -8,7 +8,12 @@ class User < ActiveRecord::Base
   validates :auth_token, presence: true
   # validates :password, length: { in: 4..20 }
 
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }
+  has_attached_file :avatar, styles: {
+        medium: "300x300>",
+        thumb: "100x100>"
+      },
+      default_url: "/images/:style/missing.png"
+
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   def ensure_auth_token

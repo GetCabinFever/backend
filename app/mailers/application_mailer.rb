@@ -1,3 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  ActionMailer::Base.mail(:from => "me@example.com", :to => "you@example.com", :subject => "Cabin Fever email verification", :body => "test").deliver
+  default from: 'no-reply-CabinFever@domain.com'
+  layout 'mailer'
 end
