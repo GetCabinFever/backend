@@ -14,3 +14,5 @@ json.safeties @residence.safety, :smoke, :co2, :first_aid, :safety_card, :exting
 json.avatar_url @residence.user.avatar.url
 json.image_url @residence.image.url
 
+json.guest_book @residence.guest_books, :entry, :image, :id
+
