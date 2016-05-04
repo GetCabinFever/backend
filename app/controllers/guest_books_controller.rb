@@ -7,6 +7,8 @@ class GuestBooksController < ApplicationController
     
     @guest_book.user_id = current_user.id
     if @guest_book.save
+      @user = User.find(@residence.user_id)
+      UserMailer.comment_email(@user).deliver_now
       render 'create.json.jbuilder', status: :ok
     else
       render json: { errors: @residence.errors.full_messages },

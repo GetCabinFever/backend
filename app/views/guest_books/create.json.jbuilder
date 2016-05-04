@@ -1,2 +1,1 @@
-json.guest_book @guest_book, :entry, :residence_id, :user_id
-json.image @guest_book.image.url
+json.guest_book @guest_book, :entry, :residence_id, :user_id, :image
