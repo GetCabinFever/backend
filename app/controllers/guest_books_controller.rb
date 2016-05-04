@@ -2,8 +2,9 @@ class GuestBooksController < ApplicationController
   before_action :authenticate!, only: [:create, :update, :destroy]
 
   def create
-    @residence = Residence.find_by params['id']
-    @guest_book = @residence.guest_books.create guest_book_params
+    @residence = Residence.find(params['residence_id'])
+    @guest_book = @residence.guest_books.new guest_book_params
+    
     @guest_book.user_id = current_user.id
     if @guest_book.save
       render 'create.json.jbuilder', status: :ok
@@ -28,6 +29,6 @@ class GuestBooksController < ApplicationController
 
   private
   def guest_book_params
-    params.permit(:entry)
+    params.permit(:entry, :image, :residence_id)
   end
 end
