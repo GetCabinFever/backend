@@ -453,3 +453,27 @@ Params:
 * current_user
 
 Returns 200 OK on Success.
+
+**Response**
+```
+[
+  {
+    "image": "<Amazon S3 image URL>",
+    "id": 18,
+    "property_type": "Cabin",
+    "title": "Jimmy's Chicken Shack"
+  },
+  {
+    "image": "<Amazon S3 image URL>",
+    "id": 19,
+    "property_type": "Cabin",
+    "title": "Frumpy Bumpkins Love Hut"
+  },
+  {
+    "image": "<Amazon S3 image URL>",
+    "id": 20,
+    "property_type": "Cabin",
+    "title": "Rutabaga Flargen Home For Wayward Clowns"
+  },
+{
+```
