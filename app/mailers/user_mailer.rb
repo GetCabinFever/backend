@@ -13,6 +13,6 @@ class UserMailer < ApplicationMailer
 
   def comment_email(user)
   	@user = user
-  	mail(to: @user.email, subject: 'Your new listing')
+  	mail(to: @user.email, subject: 'Someone Signed Your Guest Book!')
   end
 end
