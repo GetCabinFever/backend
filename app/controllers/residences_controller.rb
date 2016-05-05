@@ -6,6 +6,7 @@ class ResidencesController < ApplicationController
     @residence.amenities = Amenity.new(amenities_params)
     @residence.safeties = Safety.new(safeties_params)
     if @residence.save
+      UserMailer.new_listing_email(current_user).deliver_now
       render 'create.json.jbuilder', status: :ok
     else
       render json: { errors: @residence.errors.full_messages },

@@ -5,11 +5,13 @@ Rails.application.routes.draw do
   get "residences/search", to: "search#search"
 
   resources :residences
-  resources :guest_books
+  
 
   resources :residences do
     resources :guest_books
   end
+
+  resources :guest_books
 
   post "login", to: "registrations#login"
   post "register", to: "registrations#create"
