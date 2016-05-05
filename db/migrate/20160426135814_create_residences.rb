@@ -2,6 +2,8 @@ class CreateResidences < ActiveRecord::Migration
   def change
     create_table :residences do |t|
       t.string :title_of_page
+      t.integer :user_id
+      t.string :booking_url
       t.string :address
       t.string :city
       t.string :state

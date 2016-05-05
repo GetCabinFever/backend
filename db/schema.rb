@@ -17,40 +17,38 @@ ActiveRecord::Schema.define(version: 20160427165821) do
   enable_extension "plpgsql"
 
   create_table "amenities", force: :cascade do |t|
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.boolean  "kitchen",               default: false
-    t.boolean  "internet",              default: false
-    t.boolean  "tv"
-    t.boolean  "essentials"
-    t.boolean  "shower_essentials"
-    t.boolean  "heating"
-    t.boolean  "airconditioning"
-    t.boolean  "washer"
-    t.boolean  "dryer"
-    t.boolean  "dishwasher"
-    t.boolean  "free_parking"
-    t.boolean  "cable"
-    t.boolean  "satellite"
-    t.boolean  "breakfast"
-    t.boolean  "pets"
-    t.boolean  "kid_friendly"
-    t.boolean  "events"
-    t.boolean  "smoking"
-    t.boolean  "wheelchair_accessible"
-    t.boolean  "elevator"
-    t.boolean  "fireplace"
-    t.boolean  "intercom"
-    t.boolean  "doorman"
-    t.boolean  "pool"
-    t.boolean  "hottub"
-    t.boolean  "gym"
-    t.boolean  "hangers"
-    t.boolean  "iron"
-    t.boolean  "hair_dryer"
-    t.boolean  "workstation"
-    t.boolean  "billiards"
-    t.integer  "residence_id"
+    t.integer "residence_id"
+    t.boolean "kitchen"
+    t.boolean "internet"
+    t.boolean "tv"
+    t.boolean "essentials"
+    t.boolean "shower_essentials"
+    t.boolean "heating"
+    t.boolean "airconditioning"
+    t.boolean "washer"
+    t.boolean "dryer"
+    t.boolean "dishwasher"
+    t.boolean "free_parking"
+    t.boolean "cable"
+    t.boolean "satellite"
+    t.boolean "breakfast"
+    t.boolean "pets"
+    t.boolean "kid_friendly"
+    t.boolean "events"
+    t.boolean "smoking"
+    t.boolean "wheelchair_accessible"
+    t.boolean "elevator"
+    t.boolean "fireplace"
+    t.boolean "intercom"
+    t.boolean "doorman"
+    t.boolean "pool"
+    t.boolean "hottub"
+    t.boolean "gym"
+    t.boolean "hangers"
+    t.boolean "iron"
+    t.boolean "hair_dryer"
+    t.boolean "workstation"
+    t.boolean "billiards"
   end
 
   create_table "guest_books", force: :cascade do |t|
@@ -63,6 +61,8 @@ ActiveRecord::Schema.define(version: 20160427165821) do
 
   create_table "residences", force: :cascade do |t|
     t.string   "title_of_page"
+    t.integer  "user_id"
+    t.string   "booking_url"
     t.string   "address"
     t.string   "city"
     t.string   "state"
@@ -89,8 +89,6 @@ ActiveRecord::Schema.define(version: 20160427165821) do
     t.datetime "image_updated_at"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-    t.text     "booking_url"
-    t.integer  "user_id"
   end
 
   create_table "safeties", force: :cascade do |t|
@@ -111,22 +109,22 @@ ActiveRecord::Schema.define(version: 20160427165821) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "password_digest"
+    t.string   "auth_token"
     t.string   "email"
     t.boolean  "owner"
     t.boolean  "renter"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
     t.string   "address"
     t.string   "city"
     t.string   "state"
     t.string   "zip"
     t.string   "phone"
     t.string   "dob"
-    t.string   "auth_token"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
 end

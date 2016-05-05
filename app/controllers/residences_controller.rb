@@ -3,8 +3,8 @@ class ResidencesController < ApplicationController
 
   def create
     @residence = current_user.residences.new(residence_params)
-    @residence.amenities = Amenities.new(amenities_params)
-    @residence.safety = Safety.new(safeties_params)
+    @residence.amenities = Amenity.new(amenities_params)
+    @residence.safeties = Safety.new(safeties_params)
     if @residence.save
       render 'create.json.jbuilder', status: :ok
     else
@@ -31,7 +31,7 @@ class ResidencesController < ApplicationController
       render 'show.json.jbuilder', status: :ok
     else
       render json: { error: "INVALID PERMISSION" },
-        status: :unauthorized
+                     status: :unauthorized
     end
   end
 
@@ -40,10 +40,10 @@ class ResidencesController < ApplicationController
     if current_user.id == @residence.user_id
       @residence.destroy
       render json: { message: "LISTING DESTROYED"} ,
-      satus: :ok
+                     status: :ok
     else
       render json: { error: "INVALID PERMISSION" },
-        status: :unauthorized
+                     status: :unauthorized
     end
   end
 

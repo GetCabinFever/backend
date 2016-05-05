@@ -9,8 +9,7 @@ json.amenities @residence.amenities, :kitchen, :internet, :tv, :essentials, :sho
                                      :smoking, :wheelchair_accessible, :elevator, :fireplace, :intercom, :doorman, :pool, :hottub, :gym,
                                      :hangers, :iron, :hair_dryer, :workstation, :billiards
 
-json.safeties @residence.safety, :smoke, :co2, :first_aid, :safety_card, :extinguisher, :fire_alarm, :gas_shutoff, :generator
+json.safeties @residence.safeties, :smoke, :co2, :first_aid, :safety_card, :extinguisher, :fire_alarm, :gas_shutoff, :generator
 
 json.avatar_url @residence.user.avatar.url
 json.image_url @residence.image.url
-

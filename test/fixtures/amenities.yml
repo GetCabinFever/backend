@@ -1,1 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+set:
+  residence: cabin
+  kitchen: false
+  internet: true
+  tv: true
+  essentials: false
+  shower_essentials: true
+  heating: false
+  airconditioning: true
+  washer: false
+  dryer: true
+  dishwasher: false
+  free_parking: true
+  cable: true
+  satellite: true
+  breakfast: false
+  pets: true
+  kid_friendly: false
+  events: true
+  smoking: true
+  wheelchair_accessible: true
+  elevator: false
+  fireplace: false
+  intercom: false
+  doorman: false
+  pool: false
+  hottub: false
+  gym: true
+  hangers: false
+  iron: true
+  hair_dryer: true
+  workstation: false
+  billiards: true
