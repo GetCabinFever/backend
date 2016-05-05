@@ -9,13 +9,13 @@ class UsersControllerTest < ActionController::TestCase
 
   test 'should not update other profiles' do
     patch :update, id: users(:brit).id, email: 'foo@bar.com'
-    assert_response :unauthorized
+    assert_response 401
   end
 
   test 'should only update own profile' do
     patch :update, id: @user.id, email: 'foo@bar.com'
     assert_not_equal @user.email, User.find(@user.id).email
-    assert_response :success
+    assert_response 200
     assert_template 'registrations/create.json.jbuilder'
   end
 
@@ -23,6 +23,6 @@ class UsersControllerTest < ActionController::TestCase
     assert_no_difference 'User.count' do
       delete :destroy, id: users(:brit).id
     end
-    assert_response :unauthorized
+    assert_response 401
   end
 end
