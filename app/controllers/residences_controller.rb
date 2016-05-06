@@ -54,7 +54,8 @@ class ResidencesController < ApplicationController
                   :property_type, :contact_host_email, :base_price, :bedrooms,
                   :bathrooms, :beds, :description_of_listing, :house_rules,
                   :the_space, :guest_access, :interaction_with_guests, :the_area,
-                  :other_things_to_note, :check_in, :check_out, :image, :booking_url)
+                  :other_things_to_note, :check_in, :check_out, :image, :booking_url,
+                  :latitude, :longitude, :accommodates)
   end
 
   def amenities_params

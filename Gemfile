@@ -44,6 +44,8 @@ gem 'pg_search'
 # Use kaminari for pagination
 gem 'kaminari'
 
+gem 'geocoder'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
