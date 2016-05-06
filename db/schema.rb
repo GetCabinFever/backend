@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160504153105) do
+ActiveRecord::Schema.define(version: 20160506175643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,8 +85,6 @@ ActiveRecord::Schema.define(version: 20160504153105) do
     t.text     "interaction_with_guests"
     t.text     "the_area"
     t.text     "other_things_to_note"
-    t.date     "check_in"
-    t.date     "check_out"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -95,6 +93,10 @@ ActiveRecord::Schema.define(version: 20160504153105) do
     t.datetime "updated_at",              null: false
     t.text     "booking_url"
     t.integer  "user_id"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.time     "check_in"
+    t.time     "check_out"
   end
 
   create_table "safeties", force: :cascade do |t|
