@@ -15,9 +15,18 @@ class ResidencesController < ApplicationController
   end
 
   def index
-    residences = Residence.all
-    @residences = residences.page(params[:page]).per(20)
-    render 'index.json.jbuilder', status: :ok
+    # residences = Residence.all
+    # @residences = residences.page(params[:page]).per(20)
+    # render 'index.json.jbuilder', status: :ok
+
+    # if params['location'].present?
+    #   @residences = Residence.near params['location'] #,50 , :order => :distance
+    #   render 'index.json.jbuilder', status: :ok
+    # else
+    #   @residences = Residence.all
+    # end
+
+    @residences = Residence.near([params[:latitude], params[:longitude]], 10)
   end
 
   def show
@@ -54,7 +63,8 @@ class ResidencesController < ApplicationController
                   :property_type, :contact_host_email, :base_price, :bedrooms,
                   :bathrooms, :beds, :description_of_listing, :house_rules,
                   :the_space, :guest_access, :interaction_with_guests, :the_area,
-                  :other_things_to_note, :check_in, :check_out, :image, :booking_url)
+                  :other_things_to_note, :check_in, :check_out, :image, :booking_url,
+                  :longitude, :latitude)
   end
 
   def amenities_params

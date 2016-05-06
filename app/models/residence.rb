@@ -12,4 +12,11 @@ class Residence < ActiveRecord::Base
       },
       default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
+  geocoded_by :full_address, :latitude => :latitude, :longitude => :longitude
+  after_validation :geocode, :if => :address_changed?
+
+  def full_address
+    [street, city, state, zip].compact.join(", ")
+  end
 end

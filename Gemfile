@@ -27,6 +27,9 @@ gem 'pg'
 
 gem "aws-sdk", '< 2.0'
 
+# Complete Ruby geocoding solution
+gem 'geocoder'
+
 gem "paperclip"
 
 gem 'paperclip-rack', require: 'paperclip/rack'
