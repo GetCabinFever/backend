@@ -1,4 +1,5 @@
 class Residence < ActiveRecord::Base
+  # before_save :property_response
   include PgSearch
 
   belongs_to :user
