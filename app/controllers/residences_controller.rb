@@ -15,9 +15,9 @@ class ResidencesController < ApplicationController
   end
 
   def index
-    residences = Residence.all
-    @residences = residences.page(params[:page]).per(20)
-    render 'index.json.jbuilder', status: :ok
+    @property = Rubillow::PropertyDetails.deep_search_results({address: params['address'],
+                                                               citystatezip: params['citystatezip']})
+    render :json => {property: @property}
   end
 
   def show
