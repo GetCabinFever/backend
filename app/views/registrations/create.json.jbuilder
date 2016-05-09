@@ -10,3 +10,4 @@ json.phone @user.phone
 json.dob @user.dob
 json.auth_token @user.auth_token
 json.avatar_url @user.avatar.url
+

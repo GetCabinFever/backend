@@ -14,7 +14,7 @@ json.listings @listings do |listing|
 	
 end
 
-if @places
+if @places.present?
   json.nearby @places do |place|
   	json.image place.image
   	json.city place.city
