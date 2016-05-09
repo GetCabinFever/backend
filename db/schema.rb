@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506175643) do
+ActiveRecord::Schema.define(version: 20160509182430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20160506175643) do
     t.integer  "bedrooms"
     t.integer  "bathrooms"
     t.integer  "beds"
-    t.integer  "base_price"
+    t.string   "base_price"
     t.text     "description_of_listing"
     t.text     "house_rules"
     t.text     "the_space"
