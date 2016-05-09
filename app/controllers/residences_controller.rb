@@ -15,8 +15,7 @@ class ResidencesController < ApplicationController
   end
 
   def index
-    @property = Rubillow::PropertyDetails.deep_search_results({address: params['address'],
-                                                               citystatezip: params['citystatezip']})
+    @property = Rubillow::Neighborhood.region_children({regionid: params['id']})
     render :json => {property: @property}
   end
 
