@@ -22,6 +22,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+# Mechanize is ruby library that makes automated web interaction easy
+gem 'mechanize'
+# Smarting importing CSV Files as Array(s) of Hashes
+gem 'smarter_csv'
 
 gem 'pg'
 
@@ -56,7 +60,6 @@ group :development, :test do
   gem 'byebug'
   gem 'pry'
   gem "dotenv-rails"
-  gem 'rspec-rails', '~> 3.0'
 end
 
 group :development do
