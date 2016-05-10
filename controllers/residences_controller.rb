@@ -15,8 +15,15 @@ class ResidencesController < ApplicationController
   end
 
   def index
-    @property = Rubillow::Neighborhood.region_children({regionid: params['id']})
-    render :json => {property: @property}
+    query = "city ILIKE ? OR state ILIKE ? OR zip ILIKE ?"
+		like_term = "%#{params[:search_input]}%"
+		@listings = Residence.where(query, like_term, like_term, like_term)
+											   .where("property_type ILIKE ?", "%#{params[:property_type]}%")
+		# if @listings.count > 0
+		# 	residence = @listings.first
+		# 	@places = Residence.near(residence.latitude, residence.longitude, 50)
+		# end
+    render "index.json.jbuilder", status: :ok
   end
 
   def show

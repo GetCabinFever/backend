@@ -29,6 +29,9 @@ gem 'rubillow'
 # Make http fun again!
 gem 'httparty'
 
+# Mechanize is a ruby library that makes automated web interaction easy
+gem 'mechanize'
+
 gem 'pg'
 
 gem "aws-sdk", '< 2.0'
