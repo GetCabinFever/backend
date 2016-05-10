@@ -4,8 +4,8 @@ json.residence @residence, :title_of_page, :user_id, :address, :city, :state, :z
                            :bedrooms, :bathrooms, :beds, :description_of_listing, :house_rules, :the_space, :guest_access,
                            :interaction_with_guests, :the_area, :other_things_to_note,  :id, :booking_url, :latitude, :longitude
 
-json.check_in @residence.check_in.strftime('%H:%M:%S %Z')
-json.check_out @residence.check_out.strftime('%H:%M:%S %Z')
+json.check_in @residence.check_in.strftime('%H:%M')
+json.check_out @residence.check_out.strftime('%H:%M')
 
 json.amenities @residence.amenities, :kitchen, :internet, :tv, :essentials, :shower_essentials, :heating, :airconditioning, :washer,
                                      :dryer, :dishwasher, :free_parking, :cable, :satellite, :breakfast, :pets, :kid_friendly, :events,
