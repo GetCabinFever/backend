@@ -14,7 +14,8 @@ class Residence < ActiveRecord::Base
       default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
-  geocoded_by :full_address, :latitude => :latitude, :longitude => :longitude
+  geocoded_by :full_address
+  reverse_geocoded_by :latitude, :longitude
   before_validation :ensure_coords!
 
   def ensure_coords!

@@ -7,7 +7,7 @@ class SearchController < ApplicationController
 													.where("property_type ILIKE ?", "%#{params[:property_type]}%")
 		if @listings.count > 0
 			residence = @listings.first
-			@places = Residence.near(residence.latitude, residence.longitude, 100)
+			@places = Residence.near([residence.latitude, residence.longitude], 100)
 		end
 		render "search.json.jbuilder", status: :ok
 	end
