@@ -1,6 +1,10 @@
 class ResidencesController < ApplicationController
   before_action :authenticate!, only: [:create, :update, :delete]
 
+  def new
+    render :new
+  end
+
   def create
     @residence = current_user.residences.new(residence_params)
     @residence.amenities = Amenity.new(amenities_params)
@@ -52,6 +56,17 @@ class ResidencesController < ApplicationController
       render json: { error: "INVALID PERMISSION" },
                      status: :unauthorized
     end
+  end
+
+  def upload
+    binding.pry 
+    @zillow = ZillowScraper.new
+    results = []
+    zillow_ids = @zillow.zillow_scrape params['query']
+    zillow_ids.each do |id|
+      results << Residence.import_from_zillow id
+    end
+    results.map {|x| x.save}
   end
 
   private

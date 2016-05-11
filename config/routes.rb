@@ -1,22 +1,18 @@
 Rails.application.routes.draw do
 
+  resources :guest_books
   resources :users
-
-  get "residences/search", to: "search#search"
-
   resources :residences
-  
-
   resources :residences do
     resources :guest_books
   end
-
-  resources :guest_books
 
   post "login", to: "registrations#login"
   post "register", to: "registrations#create"
 
   get "user/dashboard", to: "users#dashboard"
+
+  post "residences/new", to: "residences#upload"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
