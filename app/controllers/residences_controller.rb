@@ -1,6 +1,10 @@
 class ResidencesController < ApplicationController
   before_action :authenticate!, only: [:create, :update, :delete]
 
+  def new
+    render :new
+  end
+
   def create
     @residence = current_user.residences.new(residence_params)
     @residence.amenities = Amenity.new(amenities_params)
@@ -14,17 +18,24 @@ class ResidencesController < ApplicationController
     end
   end
 
-  def upload
-    # [25] pry(main)> Rubillow::PropertyDetails.deep_comps({zws_id: 'X1-ZWz1f9t19ndb7v_5886x',zpid: 2106042741,count: 25})
-    binding.pry  
-    properties = Rubillow::PropertyDetails.deep_comps
-      {
-        zws_id: params['zws-id'],
-        zpid: params['zpid'],
-        count: params['count']
-      }
-    # render : { properties: @properties }, status: :ok
-  end
+  # def upload
+  #   # [25] pry(main)> Rubillow::PropertyDetails.deep_comps({zws_id: 'X1-ZWz1f9t19ndb7v_5886x',zpid: 2106042741,count: 25})
+  #   listings = Rubillow::PropertyDetails.deep_comps(
+  #     {
+  #       zws_id: params['zws-id'],
+  #       zpid: params['zpid'],
+  #       count: params['count']
+  #     })
+  #
+  #   Residence.transaction do
+  #     Residence.new address: listings['street'],
+  #                   city:    listings['city'],
+  #                   state:   listings['state'],
+  #                            listings['zipcode'],
+  #                            listings['latitude'],
+  #                            listings['longitude']
+  #   # render json: { properties: @listings }
+  # end
 
   # def index
   #   query = "city ILIKE ? OR state ILIKE ? OR zip ILIKE ?"
@@ -61,7 +72,7 @@ class ResidencesController < ApplicationController
       render json: { message: "LISTING DESTROYED"} ,
                      status: :ok
     else
-      render json: { error: "INVALID PERMISSION" },
+      render xml: { error: "INVALID PERMISSION" },
                      status: :unauthorized
     end
   end
@@ -76,6 +87,36 @@ class ResidencesController < ApplicationController
   #   end
   #   results.map {|x| x.save}
   # end
+
+#   def upload
+#     file = params['residence']
+#     ActiveRecord::Base.transaction do
+#   end
+#
+#   def create
+#   file = params[:cardset]
+#   begin
+#     data = JSON.parse(file.read)
+#   rescue JSON::ParserError => e
+#     flash[:notice] = "That JSON file is all fucked up."
+#     redirect_to root_path
+#   end
+#   ActiveRecord::Base.transaction do
+#     @set = CardSet.new(name: data["name"],
+#                        set_type: data["type"],
+#                        code: data["code"],
+#                        release_date: DateTime.parse(data["releaseDate"]),
+#                        block: data["block"])
+#     @cards = data["cards"].map do |card|
+#       Card.import_from_json(card)
+#     end
+#     @set.cards = @cards
+#     @set.save
+#   end
+#   flash[:notice] = "New Set Import #{@set.name} was successful." if @set.persisted?
+#   redirect_to root_path
+# end
+# end
 
   private
   def residence_params

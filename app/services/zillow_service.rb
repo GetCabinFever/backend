@@ -1,22 +1,25 @@
 class ZillowScraper
 
-  def zillow_scrape(query)
-    page = get_page(query)
-    zillow_ids(page)
-  end
-
-  def get_page(query)
-    mechanize = Mechanize.new
-    page = mechanize.get("http://www.zillow.com/homes/#{query}")
-  end
-
-  def zillow_ids(page)
-    page.search('article').map do |node|
-      node.attributes.values[2].value.gsub(/\D/,'')
-    end
-  end
-
 end
+
+
+#   def zillow_scrape(query)
+#     page = get_page(query)
+#     zillow_ids(page)
+#   end
+#
+#   def get_page(query)
+#     mechanize = Mechanize.new
+#     page = mechanize.get("http://www.zillow.com/homes/#{query}")
+#   end
+#
+#   def zillow_ids(page)
+#     page.search('article').map do |node|
+#       node.attributes.values[2].value.gsub(/\D/,'')
+#     end
+#   end
+#
+# end
 
 
 =begin

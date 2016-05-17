@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get "user/dashboard", to: "users#dashboard"
 
-  post "residences/new", to: "residences#upload"
+  post "residences/upload", to: "residences#upload"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

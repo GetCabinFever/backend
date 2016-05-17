@@ -1,6 +1,10 @@
 <small>ZILLOW</small>
 
-<%= form_tag residence_upload_path do |f| %>
-  <%= f.label 'url' %>
-  <%= f.text_field_tag :query %>
+<%= form_tag @residence do |f| %>
+  <%= f.label 'zws-id' %>
+  <%= f.text_field_tag :zws_id %>
+  <%= f.label 'zpid' %>
+  <%= f.text_field_tag :zpid %>
+  <%= f.label 'count' %>
+  <%= f.text_field_tag :count %>
 <% end %>
